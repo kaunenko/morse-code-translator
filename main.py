@@ -27,7 +27,6 @@ MORSE_CODE_DICT = { 'A':'.-', 'B':'-...',
                     '(':'-.--.', ')':'-.--.-'}
 
 
-# TODO # Function to encrypt the string
 
 def encrypt(message):
     cipher = ''
@@ -38,14 +37,11 @@ def encrypt(message):
             except KeyError:
                 cipher += ' . '
 
-
         else:
             cipher += " "
 
     return cipher
 
-
-# TODO # Function to decrypt the string
 
 def decrypt(massage):
     citext = ''
@@ -61,17 +57,12 @@ def decrypt(massage):
     print(decipher)
 
 
-
-
-# TODO # MAIN Function
 def main():
     print(encrypt("Hello р world".upper()))
 
     print(decrypt(".... . .-.. .-.. ---  .-- --- .-. .-.. -.."))
 
 
-
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     main()
 
