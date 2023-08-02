@@ -32,7 +32,7 @@ def encrypt(message):
     for letter in message:
         if letter != " ":
             try:
-                cipher += MORSE_CODE_DICT[letter] + ' '
+                cipher += MORSE_CODE_DICT[letter.upper()] + ' '
             except KeyError:
                 cipher += ' . '
 
@@ -51,15 +51,25 @@ def decrypt(massage):
         citext = word.split()
 
         for cileter in citext:
-            decipher += list(MORSE_CODE_DICT.keys())[list(MORSE_CODE_DICT.values()).index(cileter)]
+            try:
+                decipher += list(MORSE_CODE_DICT.keys())[list(MORSE_CODE_DICT.values()).index(cileter)]
+            except ValueError:
+                decipher += '?'
         decipher += ' '
-    print(decipher)
+
+    return decipher
 
 
 def main():
-    print(encrypt("Hello р world".upper()))
+    while True:
+        choice = input("Choice e to encrypt d to decrypt or any to exit:")
+        if choice.upper() == 'E':
+            print(encrypt(input("Enter message to encrypt: ")))
+        elif choice.upper() == 'D':
+            print(decrypt(input("Enter morse code to decrypt: ")))
+        else:
+            break
 
-    print(decrypt(".... . .-.. .-.. ---  .-- --- .-. .-.. -.."))
 
 
 if __name__ == '__main__':
